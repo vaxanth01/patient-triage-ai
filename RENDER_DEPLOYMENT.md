@@ -82,3 +82,4 @@ Once deployment completes (~1 to 2 minutes), Render assigns a public HTTPS URL:
   - Send patient JSON payload to receive immediate triage classification, class probabilities, and clinical red flags.
 - **Metrics API:** `GET https://<your-service-name>.onrender.com/api/metrics`
 - **Charts:** `GET https://<your-service-name>.onrender.com/figures/<filename>.png`
+
