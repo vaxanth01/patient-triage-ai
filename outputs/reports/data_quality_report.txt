@@ -1,0 +1,56 @@
+======================================================================
+DATA QUALITY & AUDIT REPORT: EMERGENCY DEPARTMENT VISITS
+======================================================================
+Raw visits file: data/raw/ed_visits.csv
+Raw shape: 7286 rows x 18 columns
+Audit reference file: data/raw/clinical_audit_triage.csv
+Audit shape: 7200 rows x 4 columns
+
+1. AUDIT OF KNOWN DEFECTS (BEFORE CLEANING)
+----------------------------------------------------------------------
+• Exact duplicate records (HIS re-sync): 86 rows
+• Duplicate visit_ids: 86 rows
+• Blood pressure text defects ('NR', '--', blanks): 193 records (2.65%)
+• Fahrenheit temperature records (>45°C): 361 records (4.95%)
+• Impossible SpO2 readings (<50% or >100%): 41 records
+• Impossible age values (0, 150, 999): 15 records
+• Missing heart rate: 218 records (2.99%)
+• Missing respiratory rate: 290 records (3.98%)
+• arrival_mode unique raw values (18 variants): ['108 Ambulance', 'AMBULANCE', 'Ambulance', 'EMS / Ambulance', 'Hospital Transfer', 'MLC/Police', 'POLICE', 'Police', 'Police / MLC', 'Referral', 'Referred', 'WALK-IN', 'Walk In', 'Walk-In', 'Walk-in', 'ambulance', 'referred', 'walk in']
+• chest_pain unique raw values: ['N', 'NO', 'No', 'Y', 'YES', 'Yes', 'no', 'yes']
+• breathlessness unique raw values: ['N', 'NO', 'No', 'Y', 'YES', 'Yes', 'no', 'yes']
+• senior_nurse_triage labelled visits: 687 / 7286 (9.43%)
+• senior_nurse_triage unique raw values: ['1 - Immediate', '2 - Urgent', '3 - Standard', '4 - Non-Urgent', 'GREEN', 'Green', 'Immediate', 'Non-Urgent', 'ORANGE', 'Orange', 'RED', 'Red', 'Standard', 'Urgent', 'YELLOW', 'Yellow', 'immediate', 'non-urgent', 'standard', 'urgent']
+• Sample arrival time representations: ['2025-01-15 03:40', '2025-07-23 16:15', '2025-10-29 00:12', '2025-05-07 20:26', '2025-03-29 13:20']
+• Comorbidities null / 'None' representation: 3229 nulls, 0 'None'
+
+2. CLEANING TRANSFORMATIONS APPLIED
+----------------------------------------------------------------------
+✓ Removed 86 exact duplicate rows. Retained 7200 unique visits.
+✓ Parsed 'blood_pressure' text into numeric 'systolic_bp' and 'diastolic_bp'. Invalid entries converted to NaN.
+✓ Converted Fahrenheit values (>45) to Celsius via C = (F - 32) * 5/9. Plausible Celsius range verified.
+✓ Converted 40 invalid SpO2 probe readings (0, 101, 110) and 15 impossible ages (0, 150, 999) to NaN.
+✓ Normalized spelling & casing for 'arrival_mode' (4 standard levels), 'chest_pain', 'breathlessness', and 'trauma'.
+✓ Safely parsed arrival timestamps across formats; extracted 'hour_of_day' (0-23).
+✓ Handled comorbidities consistently; derived 'comorbidity_count' integer feature.
+✓ Standardized senior_nurse_triage into 4 target levels: Immediate, Urgent, Standard, Non-Urgent.
+
+3. POST-CLEANING QUALITY VERIFICATION
+----------------------------------------------------------------------
+Cleaned shape: 7200 rows x 23 columns
+Unique visit_ids: 7200
+Systolic BP range: 50.0 - 232.0 mmHg (NaNs: 189)
+Diastolic BP range: 30.0 - 140.0 mmHg (NaNs: 189)
+Temperature range: 35.0 - 40.8 °C (NaNs: 0)
+SpO2 range: 69.2% - 100.0% (NaNs: 40)
+Age range: 18.0 - 92.0 years (NaNs: 15)
+Comorbidity count range: 0 - 4
+Labelled senior nurse visits: 680 / 7200 (9.44%)
+Senior nurse triage class breakdown:
+senior_nurse_triage
+Standard      272
+Urgent        193
+Non-Urgent    156
+Immediate      59
+
+Cleaned dataset saved successfully to: data/processed/cleaned_ed_visits.csv

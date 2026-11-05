@@ -1,0 +1,249 @@
+{
+    "project_name": "Patient Triage from Partially Labelled Records",
+    "track": "G - Semi-Supervised Learning",
+    "domain": "Healthcare - Emergency Department",
+    "seed": 444,
+    "dataset": {
+        "total_raw_rows": 7286,
+        "unique_visits": 7200,
+        "senior_nurse_labelled_visits": 551,
+        "locked_test_visits": 1440
+    },
+    "selected_model": "Random Forest Classifier",
+    "selected_model_metrics": {
+        "Model": "Random Forest Classifier",
+        "Accuracy": 0.9111,
+        "Macro_F1": 0.9173,
+        "Weighted_F1": 0.9111,
+        "Immediate_Recall": 0.9145,
+        "Urgent_Recall": 0.9416,
+        "Standard_Recall": 0.9247,
+        "NonUrgent_Recall": 0.8522,
+        "Immediate_Precision": 0.9817,
+        "Urgent_Precision": 0.944,
+        "Standard_Precision": 0.8824,
+        "NonUrgent_Precision": 0.9018,
+        "Overall_Under_Triage_Rate": 0.0437,
+        "Immediate_Under_Triage_Rate": 0.0855,
+        "Urgent_Under_Triage_Rate": 0.0533
+    },
+    "model_comparison": [
+        {
+            "Model": "Multinomial Logistic Regression",
+            "Accuracy": 0.8722,
+            "Macro_F1": 0.8729,
+            "Weighted_F1": 0.8723,
+            "Immediate_Recall": 0.8376,
+            "Urgent_Recall": 0.8655,
+            "Standard_Recall": 0.8904,
+            "NonUrgent_Recall": 0.8609,
+            "Immediate_Precision": 0.9159,
+            "Urgent_Precision": 0.8974,
+            "Standard_Precision": 0.8497,
+            "NonUrgent_Precision": 0.871,
+            "Overall_Under_Triage_Rate": 0.0743,
+            "Immediate_Under_Triage_Rate": 0.1624,
+            "Urgent_Under_Triage_Rate": 0.1117
+        },
+        {
+            "Model": "Random Forest Classifier",
+            "Accuracy": 0.9111,
+            "Macro_F1": 0.9173,
+            "Weighted_F1": 0.9111,
+            "Immediate_Recall": 0.9145,
+            "Urgent_Recall": 0.9416,
+            "Standard_Recall": 0.9247,
+            "NonUrgent_Recall": 0.8522,
+            "Immediate_Precision": 0.9817,
+            "Urgent_Precision": 0.944,
+            "Standard_Precision": 0.8824,
+            "NonUrgent_Precision": 0.9018,
+            "Overall_Under_Triage_Rate": 0.0437,
+            "Immediate_Under_Triage_Rate": 0.0855,
+            "Urgent_Under_Triage_Rate": 0.0533
+        },
+        {
+            "Model": "Label Spreading (kNN Graph)",
+            "Accuracy": 0.7882,
+            "Macro_F1": 0.8161,
+            "Weighted_F1": 0.7895,
+            "Immediate_Recall": 0.8291,
+            "Urgent_Recall": 0.7716,
+            "Standard_Recall": 0.6798,
+            "NonUrgent_Recall": 0.9768,
+            "Immediate_Precision": 1.0,
+            "Urgent_Precision": 0.9354,
+            "Standard_Precision": 0.802,
+            "NonUrgent_Precision": 0.6444,
+            "Overall_Under_Triage_Rate": 0.2056,
+            "Immediate_Under_Triage_Rate": 0.1709,
+            "Urgent_Under_Triage_Rate": 0.2284
+        },
+        {
+            "Model": "Handwritten Co-Training",
+            "Accuracy": 0.8938,
+            "Macro_F1": 0.892,
+            "Weighted_F1": 0.8938,
+            "Immediate_Recall": 0.8547,
+            "Urgent_Recall": 0.9213,
+            "Standard_Recall": 0.8836,
+            "NonUrgent_Recall": 0.8928,
+            "Immediate_Precision": 0.9174,
+            "Urgent_Precision": 0.9167,
+            "Standard_Precision": 0.8974,
+            "NonUrgent_Precision": 0.8556,
+            "Overall_Under_Triage_Rate": 0.0632,
+            "Immediate_Under_Triage_Rate": 0.1453,
+            "Urgent_Under_Triage_Rate": 0.0558
+        },
+        {
+            "Model": "All-Labelled Upper Bound",
+            "Accuracy": 0.9187,
+            "Macro_F1": 0.9134,
+            "Weighted_F1": 0.9187,
+            "Immediate_Recall": 0.8547,
+            "Urgent_Recall": 0.934,
+            "Standard_Recall": 0.9298,
+            "NonUrgent_Recall": 0.9043,
+            "Immediate_Precision": 0.9346,
+            "Urgent_Precision": 0.9388,
+            "Standard_Precision": 0.9126,
+            "NonUrgent_Precision": 0.9017,
+            "Overall_Under_Triage_Rate": 0.0486,
+            "Immediate_Under_Triage_Rate": 0.1453,
+            "Urgent_Under_Triage_Rate": 0.0482
+        }
+    ],
+    "confusion_matrices": {
+        "Multinomial Logistic Regression": [
+            [
+                98,
+                19,
+                0,
+                0
+            ],
+            [
+                9,
+                341,
+                44,
+                0
+            ],
+            [
+                0,
+                20,
+                520,
+                44
+            ],
+            [
+                0,
+                0,
+                48,
+                297
+            ]
+        ],
+        "Random Forest Classifier": [
+            [
+                107,
+                10,
+                0,
+                0
+            ],
+            [
+                2,
+                371,
+                21,
+                0
+            ],
+            [
+                0,
+                12,
+                540,
+                32
+            ],
+            [
+                0,
+                0,
+                51,
+                294
+            ]
+        ],
+        "Label Spreading (kNN Graph)": [
+            [
+                97,
+                20,
+                0,
+                0
+            ],
+            [
+                0,
+                304,
+                90,
+                0
+            ],
+            [
+                0,
+                1,
+                397,
+                186
+            ],
+            [
+                0,
+                0,
+                8,
+                337
+            ]
+        ],
+        "Handwritten Co-Training": [
+            [
+                100,
+                17,
+                0,
+                0
+            ],
+            [
+                9,
+                363,
+                22,
+                0
+            ],
+            [
+                0,
+                16,
+                516,
+                52
+            ],
+            [
+                0,
+                0,
+                37,
+                308
+            ]
+        ],
+        "All-Labelled Upper Bound": [
+            [
+                100,
+                17,
+                0,
+                0
+            ],
+            [
+                7,
+                368,
+                19,
+                0
+            ],
+            [
+                0,
+                7,
+                543,
+                34
+            ],
+            [
+                0,
+                0,
+                33,
+                312
+            ]
+        ]
+    }
+}

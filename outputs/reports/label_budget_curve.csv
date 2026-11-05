@@ -1,0 +1,25 @@
+label_budget_pct,n_labelled_visits,model,macro_f1,immediate_recall,urgent_recall,under_triage_rate
+2,115,Logistic Regression (Supervised),0.8338,0.5641,0.9086,0.0833
+2,115,Random Forest (Supervised),0.8197,0.5214,0.8883,0.0924
+2,115,Label Spreading (Semi-Supervised),0.6938,0.5299,0.6371,0.3
+2,115,Co-Training (Semi-Supervised),0.8237,0.6154,0.8604,0.0875
+5,288,Logistic Regression (Supervised),0.8896,0.8205,0.9086,0.0583
+5,288,Random Forest (Supervised),0.8869,0.735,0.9264,0.0667
+5,288,Label Spreading (Semi-Supervised),0.809,0.7863,0.7716,0.1972
+5,288,Co-Training (Semi-Supervised),0.8793,0.8718,0.868,0.0556
+10,576,Logistic Regression (Supervised),0.8949,0.7949,0.9239,0.0646
+10,576,Random Forest (Supervised),0.8945,0.7778,0.9264,0.059
+10,576,Label Spreading (Semi-Supervised),0.828,0.8034,0.7843,0.175
+10,576,Co-Training (Semi-Supervised),0.8945,0.8547,0.8934,0.059
+20,1152,Logistic Regression (Supervised),0.9105,0.8718,0.9137,0.0507
+20,1152,Random Forest (Supervised),0.916,0.8889,0.934,0.0486
+20,1152,Label Spreading (Semi-Supervised),0.8566,0.8376,0.8401,0.1486
+20,1152,Co-Training (Semi-Supervised),0.9114,0.8889,0.9061,0.0493
+30,1728,Logistic Regression (Supervised),0.9074,0.8462,0.9213,0.0542
+30,1728,Random Forest (Supervised),0.9322,0.9316,0.9442,0.0403
+30,1728,Label Spreading (Semi-Supervised),0.8643,0.8547,0.835,0.141
+30,1728,Co-Training (Semi-Supervised),0.9071,0.8547,0.9162,0.0549
+40,2304,Logistic Regression (Supervised),0.9085,0.8547,0.9137,0.0549
+40,2304,Random Forest (Supervised),0.9285,0.9231,0.934,0.0444
+40,2304,Label Spreading (Semi-Supervised),0.8637,0.8462,0.8299,0.1396
+40,2304,Co-Training (Semi-Supervised),0.9079,0.8547,0.9137,0.0549

@@ -1,0 +1,5 @@
+View / Model,CV_Macro_F1,CV_Macro_F1_Std,CV_Accuracy
+View 1 (Vitals alone),0.744366156488555,0.044310762994762776,
+View 2 (History alone),0.5900437790407838,0.03220076462815657,
+Combined Views (Logistic Regression),0.7799958183202005,,0.755069615069615
+Combined Views (Random Forest),0.8289345789305939,,0.7968222768222768

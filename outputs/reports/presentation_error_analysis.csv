@@ -1,0 +1,8 @@
+audit_presentation,total_cases,caught_cases,immediate_recall
+major trauma,11,8,0.7273
+stroke,18,15,0.8333
+hypovolemic shock,12,11,0.9167
+acute respiratory failure,16,15,0.9375
+cardiac arrest / severe ACS,21,20,0.9524
+diabetic ketoacidosis with coma,25,24,0.96
+sepsis,14,14,1.0
